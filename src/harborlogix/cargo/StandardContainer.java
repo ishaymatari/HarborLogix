@@ -3,43 +3,40 @@ package harborlogix.cargo;
 import harborlogix.clients.Client;
 import harborlogix.ops.TariffPolicy;
 
-/**
- * SKELETON.  StandardContainer IS-A CargoUnit.
- *
- * Extra state : volumeM3 (must be positive)
- * Daily fee   : BASE_STORAGE_RATE * volumeM3
- * Category    : "Standard"
- * Briefing    : any sensible one-line message
- */
 public class StandardContainer extends CargoUnit {
 
-    // TODO: private final double volumeM3;
+    private final double volumeM3;
 
     public StandardContainer(String unitId, Client owner, double weightKg,
                              int daysStored, double volumeM3) {
         super(unitId, owner, weightKg, daysStored);
-        // TODO: validate volumeM3 > 0, then assign
-        throw new UnsupportedOperationException("TODO StandardContainer constructor");
+        if (volumeM3 <= 0) {
+            throw new IllegalArgumentException("Volume must be positive, got " + volumeM3);
+        }
+        this.volumeM3 = volumeM3;
     }
 
     public double getVolumeM3() {
-        throw new UnsupportedOperationException("TODO getVolumeM3");
+        return volumeM3;
     }
 
     @Override
     public double dailyStorageFee() {
-        throw new UnsupportedOperationException("TODO dailyStorageFee");
+        return TariffPolicy.BASE_STORAGE_RATE * volumeM3;
     }
 
     @Override
     public String handlingCategory() {
-        throw new UnsupportedOperationException("TODO handlingCategory");
+        return "Standard";
     }
 
     @Override
     public String safetyBriefing() {
-        throw new UnsupportedOperationException("TODO safetyBriefing");
+        return "Standard container: Ensure standard twist-lock securing on deck/yard.";
     }
 
-    // TODO: override toString(), reusing super.toString()
+    @Override
+    public String toString() {
+        return String.format("%s, vol=%.1fm3]", super.toString().substring(0, super.toString().length() - 1), volumeM3);
+    }
 }

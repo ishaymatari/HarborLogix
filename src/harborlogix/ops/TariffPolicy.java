@@ -18,7 +18,7 @@ package harborlogix.ops;
 public final class TariffPolicy {
 
     /** TODO: your student ID as a String, digits only. */
-    public static final String STUDENT_ID = "TODO_PUT_YOUR_ID_HERE";
+    public static final String STUDENT_ID = "216774570";
 
     public static final int D1 = Character.getNumericValue(STUDENT_ID.charAt(STUDENT_ID.length() - 1));
     public static final int D2 = Character.getNumericValue(STUDENT_ID.charAt(STUDENT_ID.length() - 2));

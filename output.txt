@@ -1,0 +1,23 @@
+=== HarborLogix terminal - student 216774570 ===
+
+=== 1. YARD MANIFEST ===
+--- Yard Manifest: Main Yard ---
+Standard[id=U101, owner=Standard Shipping Co, 12000.0 kg, 5 days, vol=33.2m3] | Safety: Standard container: Ensure standard twist-lock securing on deck/yard.
+Reefer[id=U102, owner=Global Logistics Ltd, 15000.0 kg, 3 days, vol=30.0m3, temp=-18.0C, kw=5.5] | Safety: Reefer: Maintain power grid connection. Target temp: -18.0 C.
+Hazmat[id=U103, owner=Ministry of Defense, 8000.0 kg, 2 days, vol=25.0m3, hazClass=3, escort=true] | Safety: HAZMAT Class 3: Handle with protective gear. Escort required: true.
+Tank[id=U104, owner=Standard Shipping Co, 20000.0 kg, 4 days, cap=10000L, fill=80.0%] | Safety: Liquid Tank: Verify valve seals and pressure relief systems before transfer.
+Total Daily Revenue: 1089.70
+
+=== 2. CLIENT INVOICES ===
+Invoice for Standard Shipping Co (Standard Walk-in): $2416.00
+Invoice for Global Logistics Ltd (Contract Client (15.0% discount)): $642.85
+Invoice for Ministry of Defense (Government (DEF-99)): $450.00
+
+=== 3. DRAINAGE ROUND ===
+Found Tank [U104] with 8000.0 Litres. Draining 2000 Litres...
+Drained: 2000.0 Litres. Remaining Fill: 60.0%
+
+=== 4. PART D: EXTENSION DEMONSTRATION ===
+Yard successfully received all cargo types without internal modifications.
+
+Process finished with exit code 0

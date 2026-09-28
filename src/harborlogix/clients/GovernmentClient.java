@@ -1,24 +1,42 @@
 package harborlogix.clients;
 
 /**
- * SKELETON. A state client. The discount is fixed by statute at 25 percent,
- * so it must NOT be a constructor parameter - model it as a constant.
- * Government cargo always gets priority handling.
+ * A state client with a fixed statutory discount of 25 percent and priority handling.
  */
 public class GovernmentClient extends Client {
 
-    // TODO: public static final double STATUTORY_DISCOUNT = 25.0;
-    // TODO: private final String agencyCode;
+    public static final double STATUTORY_DISCOUNT = 25.0;
+    private final String agencyCode;
 
     public GovernmentClient(String clientId, String name, String agencyCode) {
         super(clientId, name);
-        // TODO: validate agencyCode and assign
-        throw new UnsupportedOperationException("TODO GovernmentClient constructor");
+        if (agencyCode == null || agencyCode.trim().isEmpty()) {
+            throw new IllegalArgumentException("Agency code cannot be null or empty.");
+        }
+        this.agencyCode = agencyCode.trim();
     }
 
     public String getAgencyCode() {
-        throw new UnsupportedOperationException("TODO getAgencyCode");
+        return agencyCode;
     }
 
-    // TODO: override discountPercent(), clientTier(), priorityHandling(), toString()
+    @Override
+    public double discountPercent() {
+        return STATUTORY_DISCOUNT;
+    }
+
+    @Override
+    public String clientTier() {
+        return "Government (" + agencyCode + ")";
+    }
+
+    @Override
+    public boolean priorityHandling() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " [Agency Code=" + agencyCode + ", Priority=true]";
+    }
 }
